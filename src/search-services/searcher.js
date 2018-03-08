@@ -25,7 +25,7 @@ class Searcher {
                     'books.publisher_id', 'books.price',
                     'publishers.name', 'publishers.address', 'publishers.phone')
             .from('books')
-            .innerJoin('publishers', ()=> {
+            .leftJoin('publishers', function() {
                 this.on('publisher_id', '=', 'publishers.id')
             });
         condition.describe(sqlQuery);

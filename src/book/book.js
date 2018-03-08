@@ -46,26 +46,10 @@ class Book{
 
     /**
      * 
-     * @return {INT}
+     * @return {int}
      */
     getId() {
         return this.id;
-    }
-
-    /**
-     * 
-     * @param {string} title
-     */
-    setTitle(title) {
-        this.title = title;
-    }
-
-    /**
-     * 
-     * @param {string} author
-     */
-    setAuthor(author) {
-        this.author = author;
     }
 
     /**
@@ -101,8 +85,8 @@ class Book{
             id       :this.getId(),
             title    :this.getTitle(),
             author   :this.getAuthor(),
-            publisher:this.getPublisher(),
-            price    :this.getPrice()
+            publisher:this.getPublisher() ? this.getPublisher() : null,
+            price    :this.getPrice() ? this.getPrice() : null
         }
     }
     

@@ -21,7 +21,7 @@ class BookRepository{
             title: book.getTitle(),
             author: book.getAuthor(),
             publisher_id: book.getPublisher() ? book.getPublisher().getId() : null,
-            price: book.getPrice()
+            price: book.getPrice()? book.getPrice() : null
         }).then(insertedIds => {
             book.setId(insertedIds[0]);
             return book
@@ -38,7 +38,7 @@ class BookRepository{
             title: book.getTitle(),
             author: book.getAuthor(),
             publisher_id: book.getPublisher() ? book.getPublisher().getId(): null,
-            price: book.getPrice()
+            price: book.getPrice() ? book.getPrice() : null
         }).where({
             id: book.getId()
         }).then(()=>book);
