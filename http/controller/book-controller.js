@@ -5,6 +5,7 @@ class BookController {
     }
 
     createBook(request, response, next) {
+        response.render('index');
         let repo = request.app.get('books.repo');
         repo.add(request.book).then(result=> {
             response.status(201).json(result.toJson());
@@ -28,7 +29,7 @@ class BookController {
 
     search(request, response, next) {
         request.app.get('book.searcher').search(request.condition)
-            .then((results) => response.status(200).send(results.map(result => result.toJson())))
+            .then((results) => response.render('home.njk', { books : results}))
             .catch(next)
     }
 }

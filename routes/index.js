@@ -9,7 +9,7 @@ let bookController = new BookController();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('home.njk');
 });
 
 router.get('/books', check.searchCondition, bookController.search);

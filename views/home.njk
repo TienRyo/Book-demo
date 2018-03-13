@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>BOOKS</title>
+</head>
+<body>
+<nav>
+    <a href="/book/save">CREATE BOOK</a>
+</nav>
+<header>
+    <form action="/search-basic" method="get">
+        <input type="text" name="keyword"/>
+        <input type="submit"/>
+    </form>
+    <form action="/search-advance">
+        <labal for="title">Title : </labal><input id="Title" type="text" name="title">
+        <labal for="author">Author : </labal><input id="author" type="text" name="author">
+        <labal for="publisher">Publisher : </labal><input  id="publisher" type="text" name="publisher">
+        <input type="submit">
+    </form>
+</header>
+<section>
+    <ul>
+        {% for book in books %}
+        <li>
+            <a href="/book/{{book.getId()}}">{{ book.getTitle() }}-{{ book.getPublisher().getName()}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+</body>
+</html>

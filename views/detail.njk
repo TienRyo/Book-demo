@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>BOOKS</title>
+</head>
+<body>
+<header>
+    <h1>
+        <a href="/book/save/{{book.getId()}}">{{book.getTitle()}}</a>
+    </h1>
+    <small>
+        {{ book.getAuthor()}}
+    </small>
+    <small>
+        {{ book.getPublisher().getName()}}
+    </small>
+    <small>
+        {{ book.getPrice()}}
+    </small>
+</body>
+</html>

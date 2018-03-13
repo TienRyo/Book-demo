@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>ADD book</title>
+</head>
+<body>
+<header>
+    <p>CREATE BOOK</p>
+</header>
+<nav>
+    <a href="">HOME</a>
+    <a href="">LIST OF BOOKS</a>
+    <a href="">AUTHOR</a>
+    <a href="">PUBLISHER</a>
+</nav>
+<section>
+    <br>
+    {% if book %}
+        <form method="post" action="/book" role="form">
+            <labal for="title">Title : </labal><input id="title" name="title" value="{{ book.getTitle() }}"/>
+            <labal for="author">Author : </labal><input id="author" name="author" value="{{ book.getAuthor() }}"/>
+            <select name="publisher">
+                <option value="{{ book.getPublisher().getName() }}"></option>
+                {% for publisher in publishers %}
+                <option>
+                    {{publisher.getName()}}
+                </option>
+                {% endfor %}
+            </select>
+            <labal for="price">Price : </labal><input id="price" name="price" value="{{ book.getPrice() }}"/>
+            <input type="submit" value="Save"/>
+        </form>
+    {% else %}
+    <form method="post" action="/book" role="form">
+        <labal for="title">Title : </labal><input id="title" name="title"/>
+        <labal for="author">Author : </labal><input id="author" name="author"/>
+        <select name="publisher">
+            {% for publisher in publishers %}
+            <option>
+                {{publisher.getName()}}
+            </option>
+            {% endfor %}
+        </select>
+        <labal for="price">Price : </labal><input id="price" name="price"/>
+        <input type="submit" value="Save"/>
+    </form>
+    {% endif %}
+
+</section>
+</body>
+</html>
